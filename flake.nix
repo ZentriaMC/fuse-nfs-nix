@@ -1,5 +1,5 @@
 {
-  description = "Zentria repository boilerplate";
+  description = "fuse-nfs-nix";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -22,10 +22,7 @@
         };
       in
       rec {
-        devShell = pkgs.mkShell {
-          buildInputs = [
-
-          ];
-        };
+        packages.fuse-nfs-nix = pkgs.callPackage ./default.nix { };
+        defaultPackage = packages.fuse-nfs-nix;
       });
 }
